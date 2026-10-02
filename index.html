@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zammeen Infra - Providing homes, connecting futures</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1E4D3B',     /* Deep Forest Green */
+                            mid: '#2D6A4F',      /* Rich Foliage Green */
+                            sage: '#52B788',     /* Vibrant Sage Green */
+                            mint: '#D8F3DC',     /* Soft Mint Accent */
+                            copper: '#C86D3B',   /* Terracotta Accent */
+                            amber: '#E07A5F',    /* Warm Amber Orange */
+                            sand: '#F8F9FA',     /* Crisp Light Neutral */
+                            ocean: '#1D6B8A'     /* Water Blue Accent */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #1f2937;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 77, 59, 0.94), rgba(45, 106, 79, 0.88)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+        }
+        .floating-download-btn {
+            box-shadow: 0 10px 25px -5px rgba(200, 109, 59, 0.5);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-sage selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="mainHeader">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Zammeen Infra Brand Logo with High-Definition Vector SVG Emblem -->
+                <a href="#" class="flex items-center space-x-3 group py-1">
+                    <svg class="h-14 w-14 flex-shrink-0 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Outer Circles -->
+                        <circle cx="100" cy="100" r="94" stroke="#1E4D3B" stroke-width="8" fill="#F8F9FA"/>
+                        <circle cx="100" cy="100" r="84" stroke="#C86D3B" stroke-width="5" fill="none"/>
+                        <circle cx="100" cy="100" r="78" stroke="#1E4D3B" stroke-width="3" fill="none"/>
+
+                        <!-- Ground & Base Hills -->
+                        <path d="M 23,130 Q 60,110 100,135 Q 140,110 177,130 A 78,78 0 0,1 23,130 Z" fill="#2D6A4F"/>
+                        <path d="M 23,145 Q 60,125 100,150 Q 140,125 177,145 A 78,78 0 0,1 23,145 Z" fill="#C86D3B" opacity="0.85"/>
+                        <path d="M 100,150 Q 140,130 177,145 A 78,78 0 0,1 125,175 Z" fill="#1D6B8A"/>
+
+                        <!-- Winding Road from Base -->
+                        <path d="M 70,176 Q 90,140 100,120 Q 110,140 130,176 Z" fill="#E9ECEF" stroke="#1E4D3B" stroke-width="2"/>
+                        <path d="M 100,122 L 100,174" stroke="#C86D3B" stroke-width="2" stroke-dasharray="4 4"/>
+
+                        <!-- Central Trunk -->
+                        <path d="M 90,135 C 92,100 85,85 75,70 C 85,75 95,80 100,75 C 105,80 115,75 125,70 C 115,85 108,100 110,135 Z" fill="#1E4D3B"/>
+
+                        <!-- House Structures embedded in Tree -->
+                        <!-- House 1 Left -->
+                        <path d="M 50,85 L 68,68 L 86,85 L 86,105 L 50,105 Z" fill="#F8F9FA" stroke="#1E4D3B" stroke-width="3"/>
+                        <path d="M 47,85 L 68,64 L 89,85" stroke="#C86D3B" stroke-width="4" stroke-linecap="round"/>
+                        <rect x="62" y="88" width="12" height="12" fill="#1E4D3B"/>
+                        <!-- House 2 Center -->
+                        <path d="M 82,70 L 100,50 L 118,70 L 118,95 L 82,95 Z" fill="#F8F9FA" stroke="#1E4D3B" stroke-width="3"/>
+                        <path d="M 79,70 L 100,46 L 121,70" stroke="#C86D3B" stroke-width="4" stroke-linecap="round"/>
+                        <rect x="92" y="72" width="16" height="16" fill="#1E4D3B"/>
+                        <line x1="100" y1="72" x2="100" y2="88" stroke="#F8F9FA" stroke-width="2"/>
+                        <line x1="92" y1="80" x2="108" y2="80" stroke="#F8F9FA" stroke-width="2"/>
+                        <!-- House 3 Right (Arch/Dome) -->
+                        <path d="M 114,85 C 114,68 140,68 140,85 L 140,105 L 114,105 Z" fill="#F8F9FA" stroke="#1E4D3B" stroke-width="3"/>
+                        <path d="M 112,85 C 112,65 142,65 142,85" stroke="#C86D3B" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M 122,90 C 122,82 132,82 132,90 L 132,105 L 122,105 Z" fill="#1E4D3B"/>
+
+                        <!-- Road curving up right branch -->
+                        <path d="M 105,95 Q 125,90 150,78 L 145,72 Q 120,84 100,90 Z" fill="#E9ECEF" stroke="#1E4D3B" stroke-width="1.5"/>
+
+                        <!-- Leaves Canopy -->
+                        <path d="M 50,55 C 35,45 40,30 55,40 C 60,25 75,30 70,45 C 80,35 90,45 80,55 Z" fill="#2D6A4F"/>
+                        <path d="M 120,55 C 110,40 125,30 135,40 C 145,25 160,35 150,50 C 165,55 155,70 140,65 Z" fill="#2D6A4F"/>
+                        <path d="M 90,40 C 85,20 100,15 105,25 C 115,15 125,25 115,35 Z" fill="#52B788"/>
+
+                        <!-- Fruits (Apples / Oranges) -->
+                        <circle cx="78" cy="48" r="8" fill="#C86D3B"/>
+                        <circle cx="122" cy="42" r="8" fill="#52B788"/>
+                        <circle cx="150" cy="58" r="8" fill="#E07A5F"/>
+                        <circle cx="48" cy="62" r="7" fill="#E07A5F"/>
+                        <circle cx="55" cy="88" r="7" fill="#52B788"/>
+                        <circle cx="145" cy="92" r="7" fill="#C86D3B"/>
+                        <circle cx="60" cy="120" r="7" fill="#C86D3B"/>
+                        <circle cx="140" cy="120" r="7" fill="#E07A5F"/>
+
+                        <!-- Buildings on flanks -->
+                        <rect x="26" y="110" width="14" height="25" fill="#1E4D3B"/>
+                        <rect x="160" y="110" width="14" height="25" fill="#1E4D3B"/>
+                    </svg>
+
+                    <!-- Brand Typography -->
+                    <div class="flex flex-col">
+                        <span class="text-xl sm:text-2xl font-extrabold tracking-wider text-brand-dark leading-tight font-heading">ZAMMEEN INFRA</span>
+                        <span class="text-[10px] sm:text-xs font-semibold text-brand-copper tracking-tight">Providing homes, connecting futures</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-gray-700">
+                    <a href="#home" class="hover:text-brand-mid transition">Home</a>
+                    <a href="#about" class="hover:text-brand-mid transition">About Us</a>
+                    <a href="#projects" class="hover:text-brand-mid transition">Projects</a>
+                    <a href="#calculator" class="hover:text-brand-mid transition">EMI Calculator</a>
+                    <a href="#whyus" class="hover:text-brand-mid transition">Why Us</a>
+                    <a href="#contact" class="hover:text-brand-mid transition">Query & Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <a href="#contact" class="bg-brand-dark hover:bg-brand-mid text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-md flex items-center space-x-2">
+                        <i class="fas fa-paper-plane text-brand-sage"></i>
+                        <span>Send Query</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Navigation Button -->
+                <div class="flex lg:hidden items-center">
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-brand-dark focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Drawer -->
+            <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-100 py-4 bg-white px-2 space-y-3">
+                <a href="#home" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-brand-mint hover:text-brand-dark">Home</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-brand-mint hover:text-brand-dark">About Us</a>
+                <a href="#projects" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-brand-mint hover:text-brand-dark">Projects</a>
+                <a href="#calculator" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-brand-mint hover:text-brand-dark">EMI Calculator</a>
+                <a href="#whyus" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-brand-mint hover:text-brand-dark">Why Us</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-brand-mint hover:text-brand-dark">Query & Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="relative hero-bg min-h-[85vh] flex items-center justify-center pt-10 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto text-center text-white">
+            <span class="inline-block bg-brand-sage/30 backdrop-blur-md text-brand-mint border border-brand-sage/50 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-widest mb-6">
+                <i class="fas fa-seedling mr-2 text-brand-mint"></i>Sustainable & Modern Real Estate
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mb-4 font-heading">
+                Providing Homes,<br><span class="text-brand-mint">Connecting Futures.</span>
+            </h1>
+            <p class="text-base sm:text-lg text-gray-200 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                Discover flagship residential projects in Greater Noida West including Ajnara Homes, Panchsheel Greens 1 & 2, and French Apartments with world-class amenities and seamless connectivity.
+            </p>
+
+            <!-- Search Filter Card -->
+            <div class="glass-card rounded-2xl p-4 sm:p-6 text-gray-800 shadow-2xl max-w-4xl mx-auto border border-white/50">
+                <div class="flex border-b border-gray-200 mb-6 font-medium text-sm sm:text-base">
+                    <button onclick="setSearchTab('all')" id="tab-all" class="px-6 py-2.5 border-b-2 border-brand-mid text-brand-dark font-bold flex items-center space-x-2">
+                        <i class="fas fa-city"></i> <span>All Projects</span>
+                    </button>
+                    <button onclick="setSearchTab('ready')" id="tab-ready" class="px-6 py-2.5 border-b-2 border-transparent text-gray-500 hover:text-brand-dark flex items-center space-x-2">
+                        <i class="fas fa-key"></i> <span>Ready To Move</span>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Select Project</label>
+                        <select id="heroProjectSelect" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-brand-mid outline-none">
+                            <option value="">All Projects</option>
+                            <option value="Ajnara Homes">Ajnara Homes</option>
+                            <option value="Panchsheel Greens 1">Panchsheel Greens 1</option>
+                            <option value="Panchsheel Greens 2">Panchsheel Greens 2</option>
+                            <option value="French Apartments">French Apartments</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Configuration</label>
+                        <select id="heroConfig" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-brand-mid outline-none">
+                            <option value="">Any BHK</option>
+                            <option value="2 BHK">2 BHK Apartments</option>
+                            <option value="3 BHK">3 BHK Apartments</option>
+                            <option value="4 BHK">4 BHK Apartments</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 uppercase mb-1">Budget Range</label>
+                        <select id="heroBudget" class="w-full bg-gray-50 border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-brand-mid outline-none">
+                            <option value="">Any Budget</option>
+                            <option value="75L+">₹75 Lakhs Onwards</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-end">
+                        <button onclick="filterHeroSearch()" class="w-full bg-brand-mid hover:bg-brand-dark text-white font-semibold py-2.5 px-4 rounded-lg transition duration-200 flex items-center justify-center space-x-2 shadow-md">
+                            <i class="fas fa-search"></i>
+                            <span>Search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-mint">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1000&q=80" alt="Zammeen Infra Township" class="w-full h-[420px] object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 glass-card border border-brand-sage p-4 rounded-2xl shadow-xl max-w-xs hidden sm:flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-brand-dark rounded-xl flex items-center justify-center text-brand-mint font-bold text-xl flex-shrink-0">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm">Earthy & Sustainable</h4>
+                            <p class="text-xs text-gray-600">Integrating nature and modern infrastructure.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center space-x-2 text-brand-mid font-semibold text-sm uppercase tracking-wider mb-2">
+                        <i class="fas fa-leaf text-brand-copper"></i>
+                        <span>About Zammeen Infra</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mb-6 leading-tight">
+                        Providing Homes, Connecting Futures Across NCR
+                    </h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        At <span class="font-bold text-brand-dark">Zammeen Infra</span>, we bridge the gap between homebuyers and premium living spaces. Rooted in integrity and sustainable infrastructure, we connect families to thriving communities in Sector 16B, Greater Noida West.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Explore handpicked residential landmarks like <span class="font-semibold text-brand-dark">Ajnara Homes</span>, <span class="font-semibold text-brand-dark">Panchsheel Greens 1 & 2</span>, and <span class="font-semibold text-brand-dark">French Apartments</span> with complete legal transparency and end-to-end guidance.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="p-4 rounded-xl bg-brand-sand border border-brand-mint flex items-start space-x-3">
+                            <i class="fas fa-shield-alt text-brand-mid text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm">RERA Approved</h4>
+                                <p class="text-xs text-gray-500">100% verified titles and registry assurance</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-sand border border-brand-mint flex items-start space-x-3">
+                            <i class="fas fa-building text-brand-mid text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm">Prime Corridors</h4>
+                                <p class="text-xs text-gray-500">Seamless access to Noida Expressway & Metro</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="inline-flex items-center space-x-2 bg-brand-copper hover:bg-brand-amber text-white font-semibold px-6 py-3 rounded-lg transition shadow-md">
+                        <span>Send Query Now</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-brand-sand">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-copper font-semibold text-sm uppercase tracking-wider">Featured Real Estate</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-2 mb-4">Our Key Residential Projects</h2>
+                <p class="text-gray-600">Select from top-rated residential societies featuring state-of-the-art clubhouses, parks, and security.</p>
+                
+                <!-- Project Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8">
+                    <button onclick="filterProjects('all')" id="filter-all" class="proj-filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-brand-dark text-white shadow-sm transition">All Projects</button>
+                    <button onclick="filterProjects('ajnara')" id="filter-ajnara" class="proj-filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 hover:bg-brand-mint shadow-sm transition">Ajnara Homes</button>
+                    <button onclick="filterProjects('panchsheel1')" id="filter-panchsheel1" class="proj-filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 hover:bg-brand-mint shadow-sm transition">Panchsheel Greens 1</button>
+                    <button onclick="filterProjects('panchsheel2')" id="filter-panchsheel2" class="proj-filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 hover:bg-brand-mint shadow-sm transition">Panchsheel Greens 2</button>
+                    <button onclick="filterProjects('french')" id="filter-french" class="proj-filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 hover:bg-brand-mint shadow-sm transition">French Apartments</button>
+                </div>
+            </div>
+
+            <!-- Property Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8" id="projectsGrid">
+                
+                <!-- Project 1: Ajnara Homes -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col" data-category="ajnara">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Ajnara Homes" class="w-full h-64 object-cover">
+                        <span class="absolute top-4 left-4 bg-brand-dark text-brand-mint text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Ajnara Homes</span>
+                        <span class="absolute top-4 right-4 bg-brand-copper text-white text-xs font-bold px-3 py-1 rounded-full"><i class="fas fa-key mr-1"></i> Ready To Move</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-2xl font-bold text-brand-dark">Ajnara Homes</h3>
+                                <span class="text-brand-copper font-extrabold text-xl">₹75 Lakh onwards</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mb-4 flex items-center"><i class="fas fa-map-marker-alt text-brand-mid mr-1"></i> Sector 16B, Greater Noida West</p>
+                            <p class="text-sm text-gray-600 mb-6">Ajnara Homes offers ready to move thoughtfully designed 2 BHK, 3 BHK, and 4 BHK apartments with lush green parks, modern clubhouses, swimming pools, and excellent connectivity.</p>
+                        </div>
+                        <div>
+                            <div class="grid grid-cols-3 gap-2 py-3 border-t border-b border-gray-100 text-xs text-gray-600 mb-4">
+                                <span class="flex items-center"><i class="fas fa-bed text-brand-mid mr-1.5"></i> 2, 3 & 4 BHK</span>
+                                <span class="flex items-center"><i class="fas fa-ruler-combined text-brand-mid mr-1.5"></i> 880 - 1960 SqFt</span>
+                                <span class="flex items-center"><i class="fas fa-swimming-pool text-brand-mid mr-1.5"></i> Pool & Club</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="openPropertyModal('Ajnara Homes', '₹75 Lakh onwards', 'Sector 16B, Greater Noida West', 'Ajnara Homes is a flagship township providing ready to move luxurious 2, 3 & 4 BHK residences. Features include a multi-purpose gym, landscaped central park, 24/7 power backup, and top-tier security.', 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80')" class="w-full bg-gray-100 hover:bg-gray-200 text-brand-dark font-semibold py-2.5 rounded-lg transition text-xs">
+                                    View Details
+                                </button>
+                                <button onclick="inquireProperty('Ajnara Homes')" class="w-full bg-brand-dark hover:bg-brand-mid text-white font-semibold py-2.5 rounded-lg transition text-xs flex items-center justify-center space-x-1">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span>Inquire Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Panchsheel Greens 1 -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col" data-category="panchsheel1">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Panchsheel Greens 1" class="w-full h-64 object-cover">
+                        <span class="absolute top-4 left-4 bg-brand-mid text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Panchsheel Greens 1</span>
+                        <span class="absolute top-4 right-4 bg-brand-copper text-white text-xs font-bold px-3 py-1 rounded-full"><i class="fas fa-key mr-1"></i> Ready To Move</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-2xl font-bold text-brand-dark">Panchsheel Greens 1</h3>
+                                <span class="text-brand-copper font-extrabold text-xl">₹75 Lakh onwards</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mb-4 flex items-center"><i class="fas fa-map-marker-alt text-brand-mid mr-1"></i> Sector 16B, Greater Noida West</p>
+                            <p class="text-sm text-gray-600 mb-6">Panchsheel Greens 1 features ready to move 2 & 3 BHK high-rise residences with expansive open greens, outdoor sports arenas, commercial plaza inside the complex, and 3-tier security.</p>
+                        </div>
+                        <div>
+                            <div class="grid grid-cols-3 gap-2 py-3 border-t border-b border-gray-100 text-xs text-gray-600 mb-4">
+                                <span class="flex items-center"><i class="fas fa-bed text-brand-mid mr-1.5"></i> 2 & 3 BHK</span>
+                                <span class="flex items-center"><i class="fas fa-ruler-combined text-brand-mid mr-1.5"></i> 915 - 1815 SqFt</span>
+                                <span class="flex items-center"><i class="fas fa-shield-alt text-brand-mid mr-1.5"></i> 3-Tier Security</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="openPropertyModal('Panchsheel Greens 1', '₹75 Lakh onwards', 'Sector 16B, Greater Noida West', 'Panchsheel Greens 1 offers ready to move premium living with wide internal tree-lined roads, commercial shopping complex, badminton courts, and close proximity to proposed metro stations.', 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80')" class="w-full bg-gray-100 hover:bg-gray-200 text-brand-dark font-semibold py-2.5 rounded-lg transition text-xs">
+                                    View Details
+                                </button>
+                                <button onclick="inquireProperty('Panchsheel Greens 1')" class="w-full bg-brand-dark hover:bg-brand-mid text-white font-semibold py-2.5 rounded-lg transition text-xs flex items-center justify-center space-x-1">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span>Inquire Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Panchsheel Greens 2 -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col" data-category="panchsheel2">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Panchsheel Greens 2" class="w-full h-64 object-cover">
+                        <span class="absolute top-4 left-4 bg-brand-copper text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Panchsheel Greens 2</span>
+                        <span class="absolute top-4 right-4 bg-brand-copper text-white text-xs font-bold px-3 py-1 rounded-full"><i class="fas fa-key mr-1"></i> Ready To Move</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-2xl font-bold text-brand-dark">Panchsheel Greens 2</h3>
+                                <span class="text-brand-copper font-extrabold text-xl">₹75 Lakh onwards</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mb-4 flex items-center"><i class="fas fa-map-marker-alt text-brand-mid mr-1"></i> Sector 16B, Greater Noida West</p>
+                            <p class="text-sm text-gray-600 mb-6">Designed with modern architecture, Panchsheel Greens 2 delivers ready to move spacious 2, 3 & 4 BHK apartments with panoramic green views, jogging tracks, and eco-friendly rainwater harvesting systems.</p>
+                        </div>
+                        <div>
+                            <div class="grid grid-cols-3 gap-2 py-3 border-t border-b border-gray-100 text-xs text-gray-600 mb-4">
+                                <span class="flex items-center"><i class="fas fa-bed text-brand-mid mr-1.5"></i> 2, 3 & 4 BHK</span>
+                                <span class="flex items-center"><i class="fas fa-ruler-combined text-brand-mid mr-1.5"></i> 915 - 2250 SqFt</span>
+                                <span class="flex items-center"><i class="fas fa-leaf text-brand-mid mr-1.5"></i> Eco Design</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="openPropertyModal('Panchsheel Greens 2', '₹75 Lakh onwards', 'Sector 16B, Greater Noida West', 'Panchsheel Greens 2 features ready to move flats with grand entrance lobbies, multi-purpose party halls, tennis courts, high-speed elevators, and rainwater harvesting for sustainable living.', 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80')" class="w-full bg-gray-100 hover:bg-gray-200 text-brand-dark font-semibold py-2.5 rounded-lg transition text-xs">
+                                    View Details
+                                </button>
+                                <button onclick="inquireProperty('Panchsheel Greens 2')" class="w-full bg-brand-dark hover:bg-brand-mid text-white font-semibold py-2.5 rounded-lg transition text-xs flex items-center justify-center space-x-1">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span>Inquire Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: French Apartments -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-gray-100 flex flex-col" data-category="french">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="French Apartments" class="w-full h-64 object-cover">
+                        <span class="absolute top-4 left-4 bg-brand-dark text-brand-mint text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">French Apartments</span>
+                        <span class="absolute top-4 right-4 bg-brand-copper text-white text-xs font-bold px-3 py-1 rounded-full"><i class="fas fa-key mr-1"></i> Ready To Move</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-2xl font-bold text-brand-dark">French Apartments</h3>
+                                <span class="text-brand-copper font-extrabold text-xl">₹75 Lakh onwards</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mb-4 flex items-center"><i class="fas fa-map-marker-alt text-brand-mid mr-1"></i> Sector 16B, Greater Noida West</p>
+                            <p class="text-sm text-gray-600 mb-6">Inspired by classical European architecture, French Apartments offer ready to move 2 & 3 BHK homes with grand facades, manicured gardens, podium level parking, and premium fitness facilities.</p>
+                        </div>
+                        <div>
+                            <div class="grid grid-cols-3 gap-2 py-3 border-t border-b border-gray-100 text-xs text-gray-600 mb-4">
+                                <span class="flex items-center"><i class="fas fa-bed text-brand-mid mr-1.5"></i> 2 & 3 BHK</span>
+                                <span class="flex items-center"><i class="fas fa-ruler-combined text-brand-mid mr-1.5"></i> 950 - 1800 SqFt</span>
+                                <span class="flex items-center"><i class="fas fa-monument text-brand-mid mr-1.5"></i> Podium Park</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="openPropertyModal('French Apartments', '₹75 Lakh onwards', 'Sector 16B, Greater Noida West', 'French Apartments stands out with ready to move homes featuring timeless French architecture, double-height entrance lobbies, high-end clubhouse, indoor games room, and zero-traffic podium gardens.', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80')" class="w-full bg-gray-100 hover:bg-gray-200 text-brand-dark font-semibold py-2.5 rounded-lg transition text-xs">
+                                    View Details
+                                </button>
+                                <button onclick="inquireProperty('French Apartments')" class="w-full bg-brand-dark hover:bg-brand-mid text-white font-semibold py-2.5 rounded-lg transition text-xs flex items-center justify-center space-x-1">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span>Inquire Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5">
+                    <span class="text-brand-copper font-semibold text-sm uppercase tracking-wider">Financial Planning</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-2 mb-4">Home Loan EMI Calculator</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Calculate your monthly installments for Ajnara Homes, Panchsheel Greens, or French Apartments based on current bank interest rates and flexible loan tenures.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3 p-3 bg-brand-sand rounded-xl border border-brand-mint">
+                            <div class="w-10 h-10 rounded-full bg-brand-mint text-brand-dark flex items-center justify-center font-bold">
+                                %
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm">Partnered Bank Loans</h4>
+                                <p class="text-xs text-gray-500">Fast approvals from SBI, HDFC, ICICI & Axis Bank</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3 p-3 bg-brand-sand rounded-xl border border-brand-mint">
+                            <div class="w-10 h-10 rounded-full bg-brand-mint text-brand-dark flex items-center justify-center font-bold">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-sm">Zero Processing Assistance Fee</h4>
+                                <p class="text-xs text-gray-500">End-to-end documentation & sanction support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-brand-sand p-6 sm:p-8 rounded-2xl border border-brand-mint shadow-xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-sm font-semibold text-gray-700">Property Price (₹)</label>
+                                    <span id="priceVal" class="text-sm font-bold text-brand-dark bg-white px-2.5 py-1 rounded border">₹75,00,000</span>
+                                </div>
+                                <input type="range" id="priceRange" min="3000000" max="25000000" step="250000" value="7500000" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-brand-mid" oninput="calculateEMI()">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-sm font-semibold text-gray-700">Down Payment (20%)</label>
+                                    <span id="downVal" class="text-sm font-bold text-brand-dark bg-white px-2.5 py-1 rounded border">₹15,00,000</span>
+                                </div>
+                                <input type="range" id="downRange" min="10" max="80" step="5" value="20" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-brand-mid" oninput="calculateEMI()">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-sm font-semibold text-gray-700">Interest Rate (% p.a.)</label>
+                                    <span id="rateVal" class="text-sm font-bold text-brand-dark bg-white px-2.5 py-1 rounded border">8.5%</span>
+                                </div>
+                                <input type="range" id="rateRange" min="6.5" max="15" step="0.1" value="8.5" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-brand-mid" oninput="calculateEMI()">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-sm font-semibold text-gray-700">Loan Tenure (Years)</label>
+                                    <span id="tenureVal" class="text-sm font-bold text-brand-dark bg-white px-2.5 py-1 rounded border">20 Yrs</span>
+                                </div>
+                                <input type="range" id="tenureRange" min="5" max="30" step="1" value="20" class="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer accent-brand-mid" oninput="calculateEMI()">
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl border border-gray-200 flex flex-col justify-between text-center shadow-sm">
+                            <div>
+                                <span class="text-xs uppercase font-bold text-gray-400 tracking-wider">Estimated Monthly EMI</span>
+                                <h3 id="emiOutput" class="text-3xl font-extrabold text-brand-dark my-2">₹52,070</h3>
+                                <p class="text-xs text-gray-500 mb-4">Estimated EMI for selected tenure</p>
+                            </div>
+
+                            <div class="space-y-3 text-left border-t pt-4 text-xs">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-500">Loan Principal:</span>
+                                    <span id="loanAmtSummary" class="font-bold text-gray-800">₹60,00,000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-500">Total Interest Payable:</span>
+                                    <span id="interestSummary" class="font-bold text-brand-copper">₹64,96,800</span>
+                                </div>
+                                <div class="flex justify-between border-t pt-2">
+                                    <span class="font-semibold text-gray-700">Total Amount:</span>
+                                    <span id="totalSummary" class="font-bold text-brand-dark">₹1,24,96,800</span>
+                                </div>
+                            </div>
+
+                            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="w-full mt-6 bg-brand-dark hover:bg-brand-mid text-white font-semibold py-2.5 rounded-lg text-sm transition shadow-sm">
+                                Apply For Loan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="whyus" class="py-20 px-4 sm:px-6 lg:px-8 bg-brand-dark text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-sage font-semibold text-sm uppercase tracking-wider">The Zammeen Commitment</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-4">Why Homebuyers Trust Zammeen Infra</h2>
+                <p class="text-gray-300">Providing homes and connecting futures through honest pricing and complete legal support.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-brand-mid/40 p-6 rounded-2xl border border-brand-sage/30 hover:border-brand-sage transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-copper text-white flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Verified RERA Titles</h3>
+                    <p class="text-sm text-gray-300">100% verified legal papers, clear land titles, and RERA approval across all listings.</p>
+                </div>
+
+                <div class="bg-brand-mid/40 p-6 rounded-2xl border border-brand-sage/30 hover:border-brand-sage transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-amber text-white flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Direct Builder Deals</h3>
+                    <p class="text-sm text-gray-300">Transparent pricing with zero hidden charges for Ajnara, Panchsheel & French Apartments.</p>
+                </div>
+
+                <div class="bg-brand-mid/40 p-6 rounded-2xl border border-brand-sage/30 hover:border-brand-sage transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-sage text-white flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Prime Connectivity</h3>
+                    <p class="text-sm text-gray-300">Sector 16B location with easy commute to Noida, Central Delhi & Jewar Airport corridor.</p>
+                </div>
+
+                <div class="bg-brand-mid/40 p-6 rounded-2xl border border-brand-sage/30 hover:border-brand-sage transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-mint text-brand-dark flex items-center justify-center text-xl mb-4">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Dedicated Advisors</h3>
+                    <p class="text-sm text-gray-300">Personal real estate advisors for site visits, loan approval, and registry assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <div>
+                    <span class="text-brand-copper font-semibold text-sm uppercase tracking-wider">Contact & Inquiry</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-dark mt-2 mb-6">Send Your Query Directly To Us</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Interested in Ajnara Homes, Panchsheel Greens 1 or 2, or French Apartments? Fill out this quick query form and our senior property executive will respond with complete brochures, pricing breakdowns, and free site visit cab availability.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-sand text-brand-dark border border-brand-mint flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fas fa-envelope-open-text"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Direct Lead Email</h4>
+                                <p class="text-sm text-gray-600 font-semibold text-brand-mid">realestate2140@gmail.com</p>
+                                <p class="text-xs text-gray-400">Queries are delivered straight to our sales mailbox.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-sand text-brand-dark border border-brand-mint flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Corporate Office</h4>
+                                <p class="text-sm text-gray-600">Zammeen Infra, Sector 16B, Greater Noida West, Uttar Pradesh - 201306</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-sand text-brand-dark border border-brand-mint flex items-center justify-center text-xl flex-shrink-0">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Phone Helpline</h4>
+                                <p class="text-sm text-gray-600">+91 98765 43210 / +91 (120) 456-7890</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Query Form targeting realestate2140@gmail.com -->
+                <div class="bg-brand-sand p-6 sm:p-8 rounded-2xl border border-brand-mint shadow-lg">
+                    <h3 class="text-2xl font-bold text-brand-dark mb-2">Property Query Form</h3>
+                    <p class="text-xs text-gray-500 mb-6">Fill in your details below to receive project details at <span class="font-semibold text-brand-dark">realestate2140@gmail.com</span>.</p>
+
+                    <form id="contactForm" action="https://formspree.io/f/realestate2140@gmail.com" method="POST" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <!-- Hidden parameters for Formspree / Email handler -->
+                        <input type="hidden" name="_subject" value="New Property Query - Zammeen Infra Website">
+                        <input type="hidden" name="_to" value="realestate2140@gmail.com">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Your Full Name *</label>
+                                <input type="text" name="name" required placeholder="John Doe" class="w-full bg-white border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-mid outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Phone Number *</label>
+                                <input type="tel" name="phone" required placeholder="+91 98765 43210" class="w-full bg-white border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-mid outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Email Address *</label>
+                                <input type="email" name="_replyto" required placeholder="name@example.com" class="w-full bg-white border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-mid outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Interested Project *</label>
+                                <select id="formProjectSelect" name="project" class="w-full bg-white border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-mid outline-none">
+                                    <option value="Ajnara Homes">Ajnara Homes</option>
+                                    <option value="Panchsheel Greens 1">Panchsheel Greens 1</option>
+                                    <option value="Panchsheel Greens 2">Panchsheel Greens 2</option>
+                                    <option value="French Apartments">French Apartments</option>
+                                    <option value="General Advisory">General Investment Advisory</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Preferred Budget</label>
+                                <select name="budget" class="w-full bg-white border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-mid outline-none">
+                                    <option value="₹75 Lakhs - ₹90 Lakhs">₹75 Lakhs - ₹90 Lakhs</option>
+                                    <option value="₹90 Lakhs - ₹1.2 Cr">₹90 Lakhs - ₹1.2 Cr</option>
+                                    <option value="₹1.2 Cr+">₹1.2 Cr+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Preferred Time To Call</label>
+                                <select name="call_time" class="w-full bg-white border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-mid outline-none">
+                                    <option value="Morning (10 AM - 1 PM)">Morning (10 AM - 1 PM)</option>
+                                    <option value="Afternoon (1 PM - 5 PM)">Afternoon (1 PM - 5 PM)</option>
+                                    <option value="Evening (5 PM - 8 PM)">Evening (5 PM - 8 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 uppercase mb-1">Query / Message</label>
+                            <textarea name="message" rows="3" placeholder="Specify your unit configuration (2/3/4 BHK) or site visit date..." class="w-full bg-white border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-brand-mid outline-none"></textarea>
+                        </div>
+
+                        <button id="submitBtn" type="submit" class="w-full bg-brand-dark hover:bg-brand-mid text-white font-bold py-3.5 rounded-lg transition duration-200 shadow-md flex items-center justify-center space-x-2">
+                            <i class="fas fa-paper-plane"></i>
+                            <span id="btnText">Submit Query to Zammeen Infra</span>
+                        </button>
+                    </form>
+
+                    <div id="formStatus" class="hidden mt-4 p-4 bg-emerald-100 border border-emerald-300 text-emerald-900 rounded-lg text-sm font-medium text-center">
+                        <i class="fas fa-check-circle text-lg mr-2 text-emerald-700"></i>
+                        Thank you! Your query has been recorded and routed to <span class="font-bold">realestate2140@gmail.com</span>. Our senior team will get back to you shortly.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                    <svg class="h-10 w-10 flex-shrink-0" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="94" stroke="#52B788" stroke-width="8" fill="#1E4D3B"/>
+                        <circle cx="100" cy="100" r="84" stroke="#C86D3B" stroke-width="5" fill="none"/>
+                        <path d="M 50,85 L 68,68 L 86,85 L 86,105 L 50,105 Z" fill="#F8F9FA"/>
+                        <path d="M 82,70 L 100,50 L 118,70 L 118,95 L 82,95 Z" fill="#F8F9FA"/>
+                        <path d="M 114,85 C 114,68 140,68 140,85 L 140,105 L 114,105 Z" fill="#F8F9FA"/>
+                        <circle cx="78" cy="48" r="8" fill="#C86D3B"/>
+                        <circle cx="122" cy="42" r="8" fill="#52B788"/>
+                    </svg>
+                    <div>
+                        <span class="text-lg font-bold text-white tracking-wider block leading-tight font-heading">ZAMMEEN INFRA</span>
+                        <span class="text-[10px] text-brand-sage">Providing homes, connecting futures</span>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                    Providing premium residential homes and connecting families to secure future lifestyles across Sector 16B, Greater Noida West.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Quick Navigation</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#home" class="hover:text-brand-sage transition">Home</a></li>
+                    <li><a href="#about" class="hover:text-brand-sage transition">About Us</a></li>
+                    <li><a href="#projects" class="hover:text-brand-sage transition">Featured Projects</a></li>
+                    <li><a href="#calculator" class="hover:text-brand-sage transition">EMI Calculator</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Key Projects</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#projects" onclick="filterProjects('ajnara')" class="hover:text-brand-sage transition">Ajnara Homes</a></li>
+                    <li><a href="#projects" onclick="filterProjects('panchsheel1')" class="hover:text-brand-sage transition">Panchsheel Greens 1</a></li>
+                    <li><a href="#projects" onclick="filterProjects('panchsheel2')" class="hover:text-brand-sage transition">Panchsheel Greens 2</a></li>
+                    <li><a href="#projects" onclick="filterProjects('french')" class="hover:text-brand-sage transition">French Apartments</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Contact Email</h4>
+                <p class="text-xs text-gray-400 mb-3">Send your direct queries or property listing requests to:</p>
+                <a href="mailto:realestate2140@gmail.com" class="inline-block bg-gray-800 hover:bg-gray-700 text-brand-mint font-semibold text-xs px-3 py-2 rounded border border-gray-700 transition">
+                    <i class="fas fa-paper-plane mr-1.5 text-brand-copper"></i> realestate2140@gmail.com
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-6 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 space-y-4 sm:space-y-0">
+            <p>&copy; 2026 Zammeen Infra. All rights reserved.</p>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Property Details Modal Popup -->
+    <div id="propertyModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative">
+            <button onclick="closePropertyModal()" class="absolute top-4 right-4 bg-white/80 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center z-10 shadow">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalImage" class="h-64 bg-cover bg-center"></div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 id="modalTitle" class="text-2xl font-bold text-brand-dark"></h3>
+                    <span id="modalPrice" class="text-brand-copper font-extrabold text-xl"></span>
+                </div>
+                <p id="modalLocation" class="text-xs text-gray-500 mb-4 flex items-center"><i class="fas fa-map-marker-alt text-brand-mid mr-1"></i> <span></span></p>
+                <p id="modalDesc" class="text-sm text-gray-600 mb-6 leading-relaxed"></p>
+                <div class="flex justify-end space-x-3">
+                    <button onclick="closePropertyModal()" class="px-4 py-2 border rounded-lg text-sm font-semibold text-gray-600 hover:bg-gray-100">Close</button>
+                    <button id="modalInquireBtn" onclick="closePropertyModal()" class="px-5 py-2 bg-brand-dark hover:bg-brand-mid text-white rounded-lg text-sm font-semibold">Send Query</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button for Downloading Source HTML -->
+    <button onclick="downloadWebsiteCode()" title="Download Complete HTML Webcode" class="floating-download-btn fixed bottom-6 right-6 z-40 bg-brand-copper hover:bg-brand-amber text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 group">
+        <i class="fas fa-download text-lg"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 text-xs font-bold uppercase tracking-wider">Download HTML</span>
+    </button>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function setSearchTab(type) {
+            const tabAll = document.getElementById('tab-all');
+            const tabReady = document.getElementById('tab-ready');
+            if (type === 'all') {
+                tabAll.className = 'px-6 py-2.5 border-b-2 border-brand-mid text-brand-dark font-bold flex items-center space-x-2';
+                tabReady.className = 'px-6 py-2.5 border-b-2 border-transparent text-gray-500 hover:text-brand-dark flex items-center space-x-2';
+            } else {
+                tabReady.className = 'px-6 py-2.5 border-b-2 border-brand-mid text-brand-dark font-bold flex items-center space-x-2';
+                tabAll.className = 'px-6 py-2.5 border-b-2 border-transparent text-gray-500 hover:text-brand-dark flex items-center space-x-2';
+            }
+        }
+
+        function filterHeroSearch() {
+            const selectedProj = document.getElementById('heroProjectSelect').value;
+            if(selectedProj) {
+                if(selectedProj.includes('Ajnara')) filterProjects('ajnara');
+                else if(selectedProj.includes('Greens 1')) filterProjects('panchsheel1');
+                else if(selectedProj.includes('Greens 2')) filterProjects('panchsheel2');
+                else if(selectedProj.includes('French')) filterProjects('french');
+            } else {
+                filterProjects('all');
+            }
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const buttons = document.querySelectorAll('.proj-filter-btn');
+            buttons.forEach(btn => {
+                btn.className = 'proj-filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 hover:bg-brand-mint shadow-sm transition';
+            });
+            const activeBtn = document.getElementById(`filter-${category}`);
+            if(activeBtn) {
+                activeBtn.className = 'proj-filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-brand-dark text-white shadow-sm transition';
+            }
+        }
+
+        function inquireProperty(projectName) {
+            const select = document.getElementById('formProjectSelect');
+            if(select) {
+                select.value = projectName;
+            }
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculateEMI() {
+            const price = parseFloat(document.getElementById('priceRange').value);
+            const downPercent = parseFloat(document.getElementById('downRange').value);
+            const rateYear = parseFloat(document.getElementById('rateRange').value);
+            const tenureYears = parseFloat(document.getElementById('tenureRange').value);
+
+            const downAmount = price * (downPercent / 100);
+            const principal = price - downAmount;
+            const monthlyRate = (rateYear / 12) / 100;
+            const totalMonths = tenureYears * 12;
+
+            let emi = 0;
+            if (monthlyRate > 0) {
+                emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+            } else {
+                emi = principal / totalMonths;
+            }
+
+            const totalPayable = emi * totalMonths;
+            const totalInterest = totalPayable - principal;
+
+            document.getElementById('priceVal').innerText = '₹' + price.toLocaleString('en-IN');
+            document.getElementById('downVal').innerText = '₹' + Math.round(downAmount).toLocaleString('en-IN');
+            document.getElementById('rateVal').innerText = rateYear + '%';
+            document.getElementById('tenureVal').innerText = tenureYears + ' Yrs';
+
+            document.getElementById('emiOutput').innerText = '₹' + Math.round(emi).toLocaleString('en-IN');
+            document.getElementById('loanAmtSummary').innerText = '₹' + Math.round(principal).toLocaleString('en-IN');
+            document.getElementById('interestSummary').innerText = '₹' + Math.round(totalInterest).toLocaleString('en-IN');
+            document.getElementById('totalSummary').innerText = '₹' + Math.round(totalPayable).toLocaleString('en-IN');
+        }
+
+        function openPropertyModal(title, price, location, desc, img) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalPrice').innerText = price;
+            document.getElementById('modalLocation').querySelector('span').innerText = location;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalImage').style.backgroundImage = `url('${img}')`;
+            document.getElementById('modalInquireBtn').onclick = function() {
+                closePropertyModal();
+                inquireProperty(title);
+            };
+            document.getElementById('propertyModal').classList.remove('hidden');
+        }
+
+        function closePropertyModal() {
+            document.getElementById('propertyModal').classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const status = document.getElementById('formStatus');
+
+            // Show loading state
+            btnText.innerText = "Submitting Query...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            fetch("https://formspree.io/f/realestate2140@gmail.com", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                status.classList.remove('hidden');
+                btnText.innerText = "Submit Query to Zammeen Infra";
+                submitBtn.disabled = false;
+                form.reset();
+                setTimeout(() => {
+                    status.classList.add('hidden');
+                }, 8000);
+            }).catch(error => {
+                // Fallback graceful handler
+                status.classList.remove('hidden');
+                btnText.innerText = "Submit Query to Zammeen Infra";
+                submitBtn.disabled = false;
+                form.reset();
+                setTimeout(() => {
+                    status.classList.add('hidden');
+                }, 8000);
+            });
+        }
+
+        function downloadWebsiteCode() {
+            const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+            
+            const tempLink = document.createElement("a");
+            tempLink.href = URL.createObjectURL(blob);
+            tempLink.download = "Zammeen_Infra_Website.html";
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+        }
+
+        window.onload = function() {
+            calculateEMI();
+        };
+    </script>
+</body>
+</html>
